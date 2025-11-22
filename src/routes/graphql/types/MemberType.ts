@@ -7,10 +7,6 @@ import {
   GraphQLInt,
 } from 'graphql';
 
-export enum MemberTypeId {
-  BASIC,
-  BUSINESS,
-}
 
 export interface MemberType {
   id: string;

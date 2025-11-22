@@ -12,7 +12,8 @@ export interface Profile {
     id: string;
     isMale: boolean;
     yearOfBirth: number;
-    memberType: MemberType;
+    memberTypeId: string;
+    memberType?: MemberType;
 }
 
 export interface GraphQLContext {
@@ -26,6 +27,13 @@ export const ProfileType = new GraphQLObjectType<Profile, GraphQLContext>({
         id: { type: new GraphQLNonNull(UUIDType) },
         isMale: { type: new GraphQLNonNull(GraphQLBoolean) },
         yearOfBirth: { type: new GraphQLNonNull(GraphQLInt) },
-        memberType: { type: new GraphQLNonNull(MemberTypeGraphType) },
+        memberType: {
+            type: new GraphQLNonNull(MemberTypeGraphType),
+            resolve: async (profile, _args, context) => {
+                return context.prisma.memberType.findUnique({
+                    where: { id: profile.memberTypeId }
+                });
+            }
+        },
     }),
 });

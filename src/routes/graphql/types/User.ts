@@ -24,7 +24,8 @@ export interface GraphQLContext {
   prisma: PrismaClient;
 }
 
-export const UserType: GraphQLObjectType<User, GraphQLContext> = new GraphQLObjectType<
+export const UserType: GraphQLObjectType<User, GraphQLContext> =
+  new GraphQLObjectType<
   User,
   GraphQLContext
 >({
@@ -41,7 +42,13 @@ export const UserType: GraphQLObjectType<User, GraphQLContext> = new GraphQLObje
         });
       },
     },
-    posts: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(PostType))) },
+    posts: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(PostType))),
+      resolve: async (user, _args, context) => {
+        return context.prisma.post.findMany({
+          where: { authorId: user.id }
+        });
+      }
+    },
     userSubscribedTo: {
       type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(UserType))),
       resolve: async (user, _args, context) => {
