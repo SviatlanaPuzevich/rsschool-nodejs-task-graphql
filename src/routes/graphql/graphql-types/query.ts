@@ -39,8 +39,6 @@ export const RootQueryType = new GraphQLObjectType<unknown, GraphQLContext>({
             id: args.id,
           },
           include: {
-            profile: true,
-            posts: true,
             userSubscribedTo: {
               include: {
                 author: true,
@@ -60,8 +58,6 @@ export const RootQueryType = new GraphQLObjectType<unknown, GraphQLContext>({
       resolve: async (_src, _args, context) => {
         return context.prisma.user.findMany({
           include: {
-            profile: true,
-            posts: true,
             userSubscribedTo: {
               include: {
                 author: true,
