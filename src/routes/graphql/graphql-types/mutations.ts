@@ -1,15 +1,15 @@
 import { GraphQLNonNull, GraphQLObjectType } from 'graphql';
-import { GraphQLContext } from './context.js';
-import { UserType } from './types/User.js';
-import { CreateUserInput } from './inputs/CreateUserInput.js';
-import { ProfileType } from './types/Profile.js';
-import { CreateProfileInput } from './inputs/CreateProfileInput.js';
-import { CreatePostInput } from './inputs/CreatePostInput.js';
-import { PostType } from './types/Post.js';
-import { UUIDType } from './types/uuid.js';
-import { ChangePostInput } from './inputs/ChangePostInput.js';
-import { ChangeProfileInput } from './inputs/ChangeProfileInput.js';
-import { ChangeUserInput } from './inputs/ChangeUserInput.js';
+import { GraphQLContext } from '../context.js';
+import { UserType } from '../types/User.js';
+import { CreateUserInput } from '../inputs/CreateUserInput.js';
+import { ProfileType } from '../types/Profile.js';
+import { CreateProfileInput } from '../inputs/CreateProfileInput.js';
+import { CreatePostInput } from '../inputs/CreatePostInput.js';
+import { PostType } from '../types/Post.js';
+import { UUIDType } from '../types/uuid.js';
+import { ChangePostInput } from '../inputs/ChangePostInput.js';
+import { ChangeProfileInput } from '../inputs/ChangeProfileInput.js';
+import { ChangeUserInput } from '../inputs/ChangeUserInput.js';
 
 interface CreateUserArgs {
   dto: {

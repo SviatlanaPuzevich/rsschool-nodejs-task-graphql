@@ -1,23 +1,14 @@
-import { PrismaClient } from '@prisma/client';
-import {
-    GraphQLObjectType,
-    GraphQLNonNull,
-    GraphQLInt, GraphQLBoolean,
-} from 'graphql';
+import { GraphQLBoolean, GraphQLInt, GraphQLNonNull, GraphQLObjectType } from 'graphql';
 import { MemberType, MemberTypeGraphType } from './MemberType.js';
-import {UUIDType} from "./uuid.js";
-
+import { UUIDType } from './uuid.js';
+import {GraphQLContext} from "../context.js";
 
 export interface Profile {
-    id: string;
-    isMale: boolean;
-    yearOfBirth: number;
-    memberTypeId: string;
-    memberType?: MemberType;
-}
-
-export interface GraphQLContext {
-    prisma: PrismaClient;
+  id: string;
+  isMale: boolean;
+  yearOfBirth: number;
+  memberTypeId: string;
+  memberType?: MemberType;
 }
 
 

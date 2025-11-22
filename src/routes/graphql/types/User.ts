@@ -1,14 +1,14 @@
-import { PrismaClient } from '@prisma/client';
 import {
-  GraphQLObjectType,
-  GraphQLNonNull,
-  GraphQLString,
   GraphQLFloat,
   GraphQLList,
+  GraphQLNonNull,
+  GraphQLObjectType,
+  GraphQLString,
 } from 'graphql';
 import { Profile, ProfileType } from './Profile.js';
 import { Post, PostType } from './Post.js';
 import { UUIDType } from './uuid.js';
+import { GraphQLContext } from '../context.js';
 
 export interface User {
   id: string;
@@ -20,9 +20,6 @@ export interface User {
   subscribedToUser: User[];
 }
 
-export interface GraphQLContext {
-  prisma: PrismaClient;
-}
 
 export const UserType: GraphQLObjectType<User, GraphQLContext> =
   new GraphQLObjectType<

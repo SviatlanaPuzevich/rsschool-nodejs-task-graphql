@@ -1,12 +1,11 @@
-import { PrismaClient } from '@prisma/client';
 import {
-  GraphQLObjectType,
-  GraphQLNonNull,
-  GraphQLFloat,
   GraphQLEnumType,
+  GraphQLFloat,
   GraphQLInt,
+  GraphQLNonNull,
+  GraphQLObjectType,
 } from 'graphql';
-
+import { GraphQLContext } from '../context.js';
 
 export interface MemberType {
   id: string;
@@ -14,9 +13,6 @@ export interface MemberType {
   postsLimitPerMonth: number;
 }
 
-export interface GraphQLContext {
-  prisma: PrismaClient;
-}
 
 export const MemberTypeIdEnum = new GraphQLEnumType({
   name: 'MemberTypeId',
