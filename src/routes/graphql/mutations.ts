@@ -1,4 +1,4 @@
-import { GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql';
+import { GraphQLNonNull, GraphQLObjectType } from 'graphql';
 import { GraphQLContext } from './context.js';
 import { UserType } from './types/User.js';
 import { CreateUserInput } from './inputs/CreateUserInput.js';
